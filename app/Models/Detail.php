@@ -14,7 +14,9 @@ class Detail extends Model
 
     protected $table = "Details";
 
-    protected $guarded = ['id'];
+    protected $primaryKey = 'book_id';
+
+    protected $guarded = ['book_id'];
 
     /**
      * @return BelongsTo

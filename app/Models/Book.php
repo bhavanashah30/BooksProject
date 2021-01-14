@@ -14,6 +14,8 @@ class Book extends Model
 {
     protected $table = "Books";
 
+    protected $primaryKey = 'id';
+
     protected $guarded = ['id'];
 
     public function detail(): HasOne
