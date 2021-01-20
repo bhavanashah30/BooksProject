@@ -20,6 +20,7 @@ Vue.component('ag-grid-vue', AgGridVue);
 Vue.component('home', require('./components/HomePage.vue').default);
 Vue.component('add', require('./components/Add.vue').default);
 Vue.component('books-list', require('./components/BooksList.vue').default);
+Vue.component('books-suggestions', require('./components/BookSuggestions.vue').default);
 
 
 const app = new Vue({

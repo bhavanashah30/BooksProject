@@ -19,6 +19,12 @@ Route::get('/', function () {
 
 Route::get('books', 'BookController@index')->name('books');
 
+Route::get('bookSuggestions', 'BookController@bookSuggestions')->name('bookSuggestions');
+
+Route::get('getBookSuggestions', 'BookController@getBooksFromPublicAPI')->name('booksSuggested');
+
+Route::get('booksInDescendingOrder', 'BookController@getBooksInDescendingOrder')->name('booksInDescendingOrder');
+
 Route::get('add', 'BookController@create')->name('add');
 
 Route::post('saveBook', 'BookController@store')->name('saveBook');

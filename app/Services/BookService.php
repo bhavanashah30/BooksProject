@@ -19,7 +19,7 @@ class BookService
      */
     public function getBooks(): Collection
     {
-        return Book::with('detail')->get();
+        return Book::with('detail')->orderBy('name')->get();
     }
 
 
@@ -46,6 +46,14 @@ class BookService
             DB::rollBack();
             throw $exception;
         }
+    }
+
+    /**
+     * @return Collection
+     */
+    public function sortBooksByNameDescending(): Collection
+    {
+        return Book::with('detail')->orderBy('name', 'desc')->get();
     }
 
     /**

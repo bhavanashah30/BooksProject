@@ -20,6 +20,9 @@
                                             <li class="nav-item">
                                                 <a class="nav-link" :href="showList">Display Books List</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" :href="bookSuggestions">Get Books Suggestion</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -48,6 +51,10 @@
 
             showList() {
                 return process.env.MIX_APP_URL + '/books'
+            },
+
+            bookSuggestions() {
+                return process.env.MIX_APP_URL + '/bookSuggestions'
             }
 
         }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\APIService;
 use App\Services\BookService;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -16,12 +17,20 @@ class BookController extends Controller
     private $bookService;
 
     /**
+     * @var APIService
+     */
+    private $apiService;
+
+
+    /**
      * BookController constructor.
      * @param BookService $bookService
+     * @param APIService $apiService
      */
-    public function __construct(BookService $bookService)
+    public function __construct(BookService $bookService, APIService $apiService)
     {
         $this->bookService = $bookService;
+        $this->apiService = $apiService;
     }
 
 
@@ -92,6 +101,34 @@ class BookController extends Controller
     public function getBooks(): JsonResponse
     {
         $books = $this->bookService->getBooks();
+
+        return response()->json($books, 200);
+    }
+
+    /**
+     * @return View
+     */
+    public function bookSuggestions(): View
+    {
+        return view('bookSuggestions');
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function getBooksInDescendingOrder(): JsonResponse
+    {
+        $books = $this->bookService->sortBooksByNameDescending();
+
+        return response()->json($books, 200);
+    }
+
+    /**
+     * @return JsonResponse
+     */
+    public function getBooksFromPublicAPI(): JsonResponse
+    {
+        $books = $this->apiService->get(config('api.booksApiUrl'));
 
         return response()->json($books, 200);
     }
