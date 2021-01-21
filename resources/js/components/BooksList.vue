@@ -79,7 +79,7 @@
 
         methods:{
             getBooks(){
-                let url = process.env.MIX_APP_URL + '/getBooks';
+                let url = process.env.MIX_APP_URL + '/api/getBooks';
                 let that = this;
                 axios.get(url)
                     .then(function (response) {
@@ -118,7 +118,7 @@
             },
 
             sortDescending() {
-                let url = process.env.MIX_APP_URL + '/booksInDescendingOrder';
+                let url = process.env.MIX_APP_URL + '/api/booksInDescendingOrder';
                 let that = this;
                 axios.get(url)
                     .then(function (response) {
@@ -130,14 +130,14 @@
             },
 
             updateBook() {
-                let url = process.env.MIX_APP_URL + '/updateBook';
+                let url = process.env.MIX_APP_URL + '/api/updateBook';
                 axios.post(url, {
-                    data: JSON.stringify({
+                    data: {
                         bookName: this.newBookName,
                         author: this.newBookAuthor,
                         genre: this.newBookGenre,
                         id: this.selectedBook.id
-                    })
+                    }
                 })
                     .then(function (response) {
                         swal2({

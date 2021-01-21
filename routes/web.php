@@ -23,17 +23,8 @@ Route::get('bookSuggestions', 'BookController@bookSuggestions')->name('bookSugge
 
 Route::get('getBookSuggestions', 'BookController@getBooksFromPublicAPI')->name('booksSuggested');
 
-Route::get('booksInDescendingOrder', 'BookController@getBooksInDescendingOrder')->name('booksInDescendingOrder');
-
 Route::get('add', 'BookController@create')->name('add');
 
-Route::post('saveBook', 'BookController@store')->name('saveBook');
-
-Route::get('getBooks', 'BookController@getBooks')->name('getBooks');
-
-Route::post('updateBook', 'BookController@update')->name('updateBook');
-
-Route::delete('deleteBook/{id}', 'BookController@destroy')->name('deleteBook');
 
 
 

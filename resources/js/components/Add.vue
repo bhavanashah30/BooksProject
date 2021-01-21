@@ -35,15 +35,15 @@
 
         methods: {
             onSubmit() {
-                let url = process.env.MIX_APP_URL + '/saveBook';
+                let url = process.env.MIX_APP_URL + '/api/saveBook';
                 axios.post(url, {
-                    data: JSON.stringify({
+                    data: {
                         bookName: this.name,
                         author: this.author,
                         genre: this.genre
-                    })
+                    }
                 })
-                    .then(function (response) {
+                    .then(function () {
                         swal2({
                             title: 'Success',
                             text: 'Book Added Successfully',

@@ -63,8 +63,8 @@ class BookController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
-        $data = json_decode($request->data);
-        $this->bookService->saveBook($data->bookName, $data->author, $data->genre);
+        $data = $request->data;
+        $this->bookService->saveBook($data['bookName'], $data['author'], $data['genre']);
         return response()->json('Success', 200);
     }
 
@@ -75,8 +75,8 @@ class BookController extends Controller
      */
     public function update(Request $request)
     {
-        $data = json_decode($request->data);
-        $this->bookService->updateBook($data->bookName, $data->author, $data->genre, $data->id);
+        $data = $request->data;
+        $this->bookService->updateBook($data['bookName'], $data['author'], $data['genre'], $data['id']);
 
         return response()->json('Success', 200);
     }

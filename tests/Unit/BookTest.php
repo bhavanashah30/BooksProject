@@ -12,7 +12,7 @@ use Tests\TestCase;
 
 class BookTest extends TestCase
 {
-    use DatabaseTransactions;
+    //use DatabaseTransactions;
 
     private $bookService;
 
@@ -102,6 +102,16 @@ class BookTest extends TestCase
     {
         $this->expectException(Exception::class);
         $this->bookService->deleteBook(5000);
+    }
+
+    public function test_test()
+    {
+        $data = new \stdClass();
+        $data->bookName = 'Text Book';
+        $data->author = 'Jane Doe';
+        $data->genre = 'Academics';
+        dd(json_encode($data));
+
     }
 
 }
